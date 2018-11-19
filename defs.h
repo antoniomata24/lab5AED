@@ -44,6 +44,7 @@ typedef struct _edge{
 } Edge;
 
 Graph *GRAPHinit(int );
+void freeLAdj(link *);
 void GRAPHinsertE(Graph *, Edge *, int);
 link *NEW(int , link *, int);
 

@@ -62,7 +62,24 @@ int main(int argc, char *argv[]){
     fprintf(fOut, "-1\n");
   }
 
+  fclose(fIn);
+  fclose(fOut);
+  free(E);
+  for(i=0;i<nV;i++){
+    aux=G->adj[i];
+    freeLAdj(aux);
+  }
+  free(G->adj);
+  free(G);
+  free(nomef);
   return 0;
+}
+
+void freeLAdj(link *Data){
+    if(Data==NULL)
+      return;
+    freeLAdj(Data->next);
+    free(Data);
 }
 
 link *NEW(int v, link *next, int weight)
